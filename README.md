@@ -1,16 +1,47 @@
 # RNA Folding Challenge
 
-## overall idea
-and sometimes you slide backwards bc life fucking sucks. so let’s say that each difficulty in your path to a william is represented by a single backward step, which we’ll call -1
-if all of this is true, now the path to a william is a series of 0s, 1s, and -1s
-like binary!
-if you’re really cautious, your path may look something like 
-`1 0 1 0 1 0 1 0 1 0`
-if you have insane bitch disorder like me, your path may look like 
-`0 16 16 0 0 -16 -16 -16 0 0 16 -16 0`
-essentially, my bipolar disorder means i operate on hexadecimal when most people operate on binary. when I fall, I fall fucking hard, but when I get back up I overshoot
+# environment management
+conda activate rna-structure
+- that's my dev environment where I download whatever packages I feel like. once I get something working I'll create a second environment with minimal dependencies etc.
 
--- tune magnitude of sine wave, I guess
+# submission file
+For each sequence in the test set, you can predict five structures. Your notebook should look for a file test_sequences.csv and output submission.csv. This file should contain x, y, z coordinates of the C1' atom in each residue across your predicted structures 1 to 5:
 
-so my theory is that all processes on earth (and, like, in the universe) can be represented by ups and downs in a wave. some processes cycle really fast and some go slow. literally process is some kind of wave that bounces between zero and infinity, with a william (the most desirable outcome) in the middle 
-these waves look like: light waves! sound waves! ocean waves! weird delta waves that your weird coworker asks you to listen to! bad vibes that a rancid person emits! 
+```
+ID,resname,resid,x_1,y_1,z_1,... x_5,y_5,z_5
+R1107_1,G,1,-7.561,9.392,9.361,... -7.301,9.023,8.932
+R1107_2,G,1,-8.02,11.014,14.606,... -7.953,10.02,12.127
+etc.
+```
+
+# TODO
+- get a PyMOL license -- pending
+- look at my bashrc
+- set up kaggle account
+- join competition
+- select toy data files and document them properly
+    - RNA pdb: https://www.kaggle.com/datasets/andrewfavor/uw-synthetic-rna-structures/data
+    - get some ribosomal proteins too
+- set up dash app: https://dash.plotly.com/minimal-app
+- reach out to Petar about Ribovision functionality?
+
+# scratchpad
+- build one layer each for each level of structure
+    - primary
+    - secondary
+    - tertiary - alpha helices, beta barrels
+    - quaternary
+- for ribosomal RNA as proof of concept, investigate how ribosomal proteins affect rRNA structure
+
+# to read
+- https://www.pnas.org/doi/10.1073/pnas.2112677119
+- https://www.kaggle.com/competitions/stanford-ribonanza-rna-folding
+
+# GUI/dash inspiration
+- https://dash.gallery/dash-alignment-chart/
+- ribovision and proteovision
+- https://pymol.org/
+
+# references
+- https://www.kaggle.com/competitions/stanford-rna-3d-folding/overview
+- https://www.nature.com/articles/s41467-021-23555-5
